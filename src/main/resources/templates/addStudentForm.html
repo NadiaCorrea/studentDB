@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Añadir Estudiante</title>
+</head>
+<body>
+	<form class="form-horizontal" action="#"
+		th:action="@{/addStudent/submit}" th:object="${estudiante}"
+		method="post">
+		<fieldset>
+
+			<!-- Form Name -->
+			<legend>Añadir estudiante</legend>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="name">Nombre:</label>
+				<div class="col-md-4">
+					<input id="name" th:field="*{name}" name="name" type="text"
+						placeholder="Introduce el nombre" class="form-control input-md"
+						required>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="surname">Apellido:</label>
+				<div class="col-md-4">
+					<input id="surname" th:field="*{surname}" name="surname"
+						type="text" placeholder="Introduce el apellido"
+						class="form-control input-md" required>
+				</div>
+			</div>
+
+			<div class="form-group"
+				th:classapend="${#fields.hasErrors('age')} ? 'has-error'">
+				<label class="col-md-4 control-label" for="age">Edad:</label>
+				<div class="col-md-4">
+					<input id="age" th:field="*{age}" name="age" type="number" step="1"
+						placeholder="Introduce la edad" class="form-control input-md"
+						required> <span class="help-block">Help:</span> <span
+						th:if="${#fields.hasErrors('age')}" th:errors="*{age}"
+						class="help-block" id="id-error">Errores</span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="submit"></label>
+				<div class="col-md-4">
+					<button id="submit" name="submit" class="btn btn-primary">Añadir</button>
+				</div>
+			</div>
+</body>
+</html>
