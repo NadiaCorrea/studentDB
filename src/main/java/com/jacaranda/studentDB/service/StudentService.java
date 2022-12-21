@@ -3,10 +3,12 @@ package com.jacaranda.studentDB.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jacaranda.studentDB.model.Student;
 import com.jacaranda.studentDB.repository.StudentRepository;
 
+@Service
 public class StudentService {
 	@Autowired
 	StudentRepository repositorio;
